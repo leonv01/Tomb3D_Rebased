@@ -67,15 +67,7 @@ public partial class Player : CharacterBody3D
 
         if (Input.IsActionJustPressed("interact"))
         {
-            if (interactCast.IsColliding())
-            {
-                Node collider = (Node)interactCast.GetCollider();
-
-                if (collider.IsInGroup("Potion"))
-                {
-                    Logger.Log("Potion");
-                }
-            }
+			Interact();
         }
 
         if (Input.IsActionJustPressed("run"))
@@ -146,6 +138,15 @@ public partial class Player : CharacterBody3D
 
 		Velocity = velocity;
 		MoveAndSlide();
+	}
+
+	public void Interact()
+	{
+		if (interactCast.IsColliding())
+		{
+			Logger.Log("Colliding with " + interactCast.GetCollider());
+
+		}
 	}
 
 	public void UpdateHUD()
