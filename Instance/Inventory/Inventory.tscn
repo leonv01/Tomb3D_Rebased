@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=3 uid="uid://dwepjs4o1ebei"]
+
+[ext_resource type="Script" path="res://Scripts/Inventory/Inventory.cs" id="1_bq25t"]
+
+[node name="Control" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -624.0
+offset_bottom = -464.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bq25t")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="ItemGrid" type="GridContainer" parent="MarginContainer"]
+layout_mode = 2
+columns = 6

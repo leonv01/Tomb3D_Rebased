@@ -1,0 +1,37 @@
+[gd_scene load_steps=2 format=3 uid="uid://o0afxj0l7tri"]
+
+[ext_resource type="Script" path="res://Scripts/Inventory/Slot.cs" id="1_8hrpw"]
+
+[node name="Slot" type="PanelContainer"]
+custom_minimum_size = Vector2(64, 64)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -576.0
+offset_bottom = -416.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8hrpw")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer"]
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="QuantityLabel" type="Label" parent="."]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+text = "x99"
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]

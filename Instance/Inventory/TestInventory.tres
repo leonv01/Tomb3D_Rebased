@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="InventoryData" load_steps=8 format=3 uid="uid://bf2qjpj26r67m"]
+
+[ext_resource type="Resource" uid="uid://cwf87dexv4xng" path="res://Mesh/Items/ManaPotion/ManaPotion.tres" id="1_gs8ya"]
+[ext_resource type="Script" path="res://Scripts/Inventory/SlotData.cs" id="2_kkmwv"]
+[ext_resource type="Resource" uid="uid://biljc5c5vns3h" path="res://Mesh/Items/HealPotion/Potion.tres" id="3_8jrjv"]
+[ext_resource type="Script" path="res://Scripts/Inventory/InventoryData.cs" id="4_kyk1m"]
+
+[sub_resource type="Resource" id="Resource_w0jo7"]
+script = ExtResource("2_kkmwv")
+Item = ExtResource("1_gs8ya")
+Quantity = 2
+
+[sub_resource type="Resource" id="Resource_p0ojp"]
+script = ExtResource("2_kkmwv")
+Item = ExtResource("1_gs8ya")
+Quantity = 2
+
+[sub_resource type="Resource" id="Resource_p8l8c"]
+script = ExtResource("2_kkmwv")
+Item = ExtResource("3_8jrjv")
+Quantity = 4
+
+[resource]
+script = ExtResource("4_kyk1m")
+SlotData = Array[Object]([SubResource("Resource_w0jo7"), null, SubResource("Resource_p0ojp"), SubResource("Resource_p8l8c"), null, null, null, null, null, null, null, null, null, null, null, null, null, null])

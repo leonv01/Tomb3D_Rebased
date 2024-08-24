@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-public abstract class Role : IHealth, IMovement, ILifecycle, IAction
+public abstract class Role : IHealth, IMovement, ILifecycle, IAttack
 {
     // Entity Attributes ---------------------
     public int Health { get; set; }
@@ -143,8 +143,14 @@ public abstract class Role : IHealth, IMovement, ILifecycle, IAction
         }
     }
 
-    public abstract void Attack();
-    public abstract void Block();
-    public abstract void Cast();
-    public abstract void Dodge();
+    public abstract void PrimaryAttack();
+    public abstract void SecondaryAttack();
+    public abstract void Ability1();
+    public abstract void Ability2();
+    public abstract void Ability3();
+
+    public override string ToString()
+    {
+        return $"Health: {Health}\n";
+    }
 }

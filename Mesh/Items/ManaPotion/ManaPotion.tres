@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://cwf87dexv4xng"]
+
+[ext_resource type="Script" path="res://Scripts/Inventory/ItemData.cs" id="1_35e6v"]
+[ext_resource type="Texture2D" uid="uid://c25vkwty7au45" path="res://Mesh/Items/ManaPotion/ManaPotion.png" id="1_508o8"]
+
+[resource]
+script = ExtResource("1_35e6v")
+Name = "Mana Potion"
+Description = "Potion that restores mana"
+IsStackable = true
+Texture = ExtResource("1_508o8")

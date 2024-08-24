@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Tomb3D.Scripts.Entity.Core
+public interface IAttack
 {
-    internal interface IAttack
-    {
-    }
+    void PrimaryAttack();
+    void SecondaryAttack();
+    void Ability1();
+    void Ability2();
+    void Ability3();
 }

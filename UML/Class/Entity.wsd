@@ -1,0 +1,68 @@
+@startuml
+
+interface IHealth
+{
+    Health : int
+    MaxHealth : int
+    TakeDamage(damage : int)
+    Heal(amount : int)
+    Die()
+}
+
+interface IMovement
+{
+    Speed : float
+    RunSpeed : float
+    JumpVelocity : float
+}
+
+interface ILifecycle
+{
+    Spawn()
+    Despawn()
+}
+
+abstract class Enemy implements IHealth, IMovement, ILifecycle
+{
+    // Shared enemy behaviors
+}
+
+abstract class Role implements IHealth, ILifecycle
+{
+    RoleName : string
+    RoleDescription : string
+    Level : int
+    Experience : int
+    Mana : int 
+    MaxMana : int
+    Energy : int
+    MaxEnergy : int
+}
+
+class Mage extends Role
+{
+    CastSpell()
+}
+
+class Knight extends Role
+{
+    Block()
+    ShieldBash()
+}
+
+class Archer extends Role
+{
+    ShootArrow()
+}
+
+class Skeleton extends Enemy
+{
+    Reassemble()
+}
+
+class Zombie extends Enemy
+{
+    Regenerate()
+}
+
+@enduml

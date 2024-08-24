@@ -6,23 +6,24 @@ using System.Threading.Tasks;
 
 public class Mage : Role
 {
-    public override void Attack()
+    public override void PrimaryAttack()
     {
-        Logger.Log("Mage Attack");
+        
     }
-
-    public override void Block()
+    public override void SecondaryAttack()
     {
-        Logger.Log("Mage Block");
+
     }
-
-    public override void Cast()
+    public override void Ability1()
     {
-        Logger.Log("Mage Cast");
+
     }
-
-    public override void Dodge()
+    public override void Ability2()
     {
-        Logger.Log("Mage Dodge");
+
+    }
+    public override void Ability3()
+    {
+
     }
 }

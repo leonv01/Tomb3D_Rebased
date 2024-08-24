@@ -19,7 +19,12 @@ public partial class Player : CharacterBody3D
 	private Control HUD;
 	private Label infoLabel;
 	private RayCast3D interactCast;
-	private Role role;
+
+	// Inventory ---------------------
+	[Export] public InventoryData InventoryData { get; set; }
+	[Signal] public delegate void ToggleInventoryEventHandler();
+
+	public Role PlayerRole { get; private set; }
 
 	public enum PlayerState
 	{
@@ -39,12 +44,14 @@ public partial class Player : CharacterBody3D
 
 		Input.MouseMode = Input.MouseModeEnum.Captured;
 
-		role = new Mage();
+        PlayerRole = new Mage();
+		PlayerRole.Health = 10;
+		PlayerRole.MaxHealth = 200;
     }
 
     public override void _UnhandledInput(InputEvent @event)
     {
-        if (@event is InputEventMouseMotion mouseEvent)
+        if (@event is InputEventMouseMotion mouseEvent && Input.MouseMode == Input.MouseModeEnum.Captured)
         {
             head.RotateY(-mouseEvent.Relative.X * Sensivity);
             camera.RotateX(-mouseEvent.Relative.Y * Sensivity);
@@ -52,41 +59,47 @@ public partial class Player : CharacterBody3D
 			vector3.X = Mathf.Clamp(camera.Rotation.X, Mathf.DegToRad(MaxLookDownAngle), Mathf.DegToRad(MaxLookUpAngle));
 			camera.Rotation = vector3;
         }
-    }
 
-	private void HandleInput()
-	{
-		if(Input.IsActionJustPressed("interact"))
+		if(Input.IsActionJustPressed("inventory"))
 		{
-			if(interactCast.IsColliding())
+			EmitSignal(nameof(ToggleInventory));
+		}
+
+        if (Input.IsActionJustPressed("interact"))
+        {
+            if (interactCast.IsColliding())
             {
-				Logger.Log("Bonk");
-            }
-		}
+                Node collider = (Node)interactCast.GetCollider();
 
-		if(Input.IsActionJustPressed("run"))
-		{
-			State = PlayerState.Running;
-		}
-		else if(Input.IsActionJustReleased("run"))
+                if (collider.IsInGroup("Potion"))
+                {
+                    Logger.Log("Potion");
+                }
+            }
+        }
+
+        if (Input.IsActionJustPressed("run"))
+        {
+            State = PlayerState.Running;
+        }
+        else if (Input.IsActionJustReleased("run"))
         {
             State = PlayerState.Walking;
         }
 
-		if(Input.IsActionJustPressed("attack"))
-		{
-			role.Attack();
-		}
-		else if(Input.IsActionJustPressed("secondary"))
+        if (Input.IsActionJustPressed("attack"))
         {
-			role.Block();
+            PlayerRole.PrimaryAttack();
         }
-	}
+        else if (Input.IsActionJustPressed("secondary"))
+        {
+            PlayerRole.SecondaryAttack();
+        }
+    }
 
     public override void _Process(double delta)
     {
 		UpdateHUD();
-		HandleInput();
     }
 
     public override void _PhysicsProcess(double delta)
@@ -129,8 +142,6 @@ public partial class Player : CharacterBody3D
 		{
 			velocity.X = Mathf.MoveToward(Velocity.X, 0, currentSpeed);
 			velocity.Z = Mathf.MoveToward(Velocity.Z, 0, currentSpeed);
-
-			
 		}
 
 		Velocity = velocity;
@@ -142,6 +153,8 @@ public partial class Player : CharacterBody3D
 		infoLabel.Text = $"" +
 			$"Position: {GlobalTransform.Origin}\n" +
 			$"State: {State}\n" +
-			$"Speed: {Velocity.Length()}";
+			$"Speed: {Velocity.Length()}\n" +
+			$"{PlayerRole}\n" +
+			$"{Engine.GetFramesPerSecond()}";
 	}
 }

@@ -8,4 +8,6 @@ using System.Threading.Tasks;
 public static class Logger
 {
     public static void Log(string message) => GD.Print(message);
+
+    public static void LogError(string message) => GD.PrintErr(message);
 }
