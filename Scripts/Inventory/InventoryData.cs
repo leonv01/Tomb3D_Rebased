@@ -26,22 +26,27 @@ public partial class InventoryData : Resource
         }
     }
 
-    public void SetSlotData(int index, ref SlotData slotData)
+    public void SetSlotData(int index, ref SlotData grabbedSlotData)
     {
         if(index >= 0 && index < SlotData.Length)
         {
-            var temp = SlotData[index];
-            SlotData[index] = slotData;
+            SlotData slotData = SlotData[index];
 
-            if (temp == null)
+            SlotData returnSlotData = null;
+
+            if(slotData != null && slotData.CanMergeWithItem(grabbedSlotData))
             {
-                slotData = null;
+                Logger.Log("Merging items");
+                slotData.MergeWithItem(grabbedSlotData);
             }
             else
             {
-                slotData = temp;
+                Logger.Log("Swapping items");
+                SlotData[index] = grabbedSlotData;
+                returnSlotData = slotData;
             }
 
+            grabbedSlotData = returnSlotData;
 
             EmitSignal(nameof(InventoryUpdated), this);
         }

@@ -26,9 +26,7 @@ public partial class SlotData : Resource
 
     public bool CanMergeWithItem(SlotData slotData)
     {
-        Logger.Log("Trying to merge items");
         return (
-            slotData != null &&
             Item == slotData.Item &&
             Item.IsStackable &&
             Quantity + slotData.Quantity <= MAX_STACK_SIZE
@@ -37,6 +35,7 @@ public partial class SlotData : Resource
 
     public void MergeWithItem(SlotData slotData)
     {
+        Logger.Log($"Merging {slotData.Quantity} {Item.Name} with {Quantity} {Item.Name}");
         Quantity += slotData.Quantity;
     }
 }

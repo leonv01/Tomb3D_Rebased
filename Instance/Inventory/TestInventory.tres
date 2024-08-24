@@ -8,12 +8,12 @@
 [sub_resource type="Resource" id="Resource_w0jo7"]
 script = ExtResource("2_kkmwv")
 Item = ExtResource("1_gs8ya")
-Quantity = 2
+Quantity = 10
 
 [sub_resource type="Resource" id="Resource_p0ojp"]
 script = ExtResource("2_kkmwv")
 Item = ExtResource("1_gs8ya")
-Quantity = 2
+Quantity = 90
 
 [sub_resource type="Resource" id="Resource_p8l8c"]
 script = ExtResource("2_kkmwv")
