@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dwmakndpiboh6" path="res://Instance/Player.tscn" id="2_j51ar"]
 [ext_resource type="Shader" path="res://Shader/Sky/SkyShader.gdshader" id="2_jd25d"]
 [ext_resource type="PackedScene" uid="uid://bixojdgqm5356" path="res://Mesh/Items/HealPotion/HealPotion.tscn" id="2_tb7v6"]
-[ext_resource type="PackedScene" uid="uid://dj28sbwgd1l25" path="res://Mesh/Items/ManaPotion/ManaPotion.tscn" id="3_hl168"]
+[ext_resource type="PackedScene" uid="uid://doih3ftakkn30" path="res://Mesh/Items/ManaPotion/ManaPotion.tscn" id="3_hl168"]
 [ext_resource type="Texture2D" uid="uid://bwv3kogbfercw" path="res://Addons/kenney_prototype_textures/dark/texture_09.png" id="4_sdvq1"]
 [ext_resource type="Resource" uid="uid://bf2qjpj26r67m" path="res://Instance/Inventory/TestInventory.tres" id="6_ajf7f"]
 [ext_resource type="PackedScene" uid="uid://k4ajynjcudis" path="res://Instance/Skeleton.tscn" id="6_e0ldb"]
@@ -52,7 +52,9 @@ script = ExtResource("1_t717w")
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 2.83032, 0.505355, -2.82845)
 
 [node name="Mana Potion" parent="." instance=ExtResource("3_hl168")]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 4.29931, 0.50561, -2.20606)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.110529, 0.50561, -2.20606)
+gravity_scale = 0.12
+can_sleep = false
 
 [node name="Zombie" parent="." instance=ExtResource("2_8jcbc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -5)
