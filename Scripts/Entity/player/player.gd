@@ -1,9 +1,7 @@
-extends CharacterBody3D
+extends Entity
 
 
 @export_category("controls")
-@export var speed: float = 5.0
-@export var run_speed: float = 10.0
 @export var jump_velocity: float = 4.5
 @export var sensivity: float = 0.001
 @export var max_look_down_angle: int = -90
@@ -37,7 +35,7 @@ func _physics_process(delta: float) -> void:
 	var input_dir: Vector2 = Input.get_vector("left", "right", "up", "down")
 	var direction: Vector3 = (head.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	
-	var target_speed: float = run_speed if player_state == PLAYER_STATES.RUNNING else speed
+	var target_speed: float = run_speed if player_state == PLAYER_STATES.RUNNING else walk_speed
 
 	if is_on_floor():
 		if direction:

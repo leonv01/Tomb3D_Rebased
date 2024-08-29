@@ -13,6 +13,8 @@ collision_layer = 3
 floor_block_on_wall = false
 script = ExtResource("1_8lrm8")
 movement_ease = 10.0
+walk_speed = 5.0
+run_speed = 10.0
 
 [node name="Body" type="MeshInstance3D" parent="."]
 mesh = SubResource("CapsuleMesh_m80ev")
