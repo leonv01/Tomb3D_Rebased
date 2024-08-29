@@ -1,17 +1,13 @@
-[gd_scene load_steps=20 format=3 uid="uid://hsik23gmclwv"]
+[gd_scene load_steps=16 format=3 uid="uid://hsik23gmclwv"]
 
-[ext_resource type="Script" path="res://Scripts/Main/Main.cs" id="1_t717w"]
+[ext_resource type="Script" path="res://Scripts/World/main.gd" id="1_gan2u"]
 [ext_resource type="PackedScene" uid="uid://byhpvvbtfvinv" path="res://Instance/Zombie.tscn" id="2_8jcbc"]
 [ext_resource type="PackedScene" uid="uid://dwmakndpiboh6" path="res://Instance/Player.tscn" id="2_j51ar"]
 [ext_resource type="Shader" path="res://Shader/Sky/SkyShader.gdshader" id="2_jd25d"]
 [ext_resource type="PackedScene" uid="uid://bixojdgqm5356" path="res://Mesh/Items/HealPotion/HealPotion.tscn" id="2_tb7v6"]
 [ext_resource type="PackedScene" uid="uid://doih3ftakkn30" path="res://Mesh/Items/ManaPotion/ManaPotion.tscn" id="3_hl168"]
 [ext_resource type="Texture2D" uid="uid://bwv3kogbfercw" path="res://Addons/kenney_prototype_textures/dark/texture_09.png" id="4_sdvq1"]
-[ext_resource type="Resource" uid="uid://bf2qjpj26r67m" path="res://Instance/Inventory/TestInventory.tres" id="6_ajf7f"]
 [ext_resource type="PackedScene" uid="uid://k4ajynjcudis" path="res://Instance/Skeleton.tscn" id="6_e0ldb"]
-[ext_resource type="PackedScene" uid="uid://dwepjs4o1ebei" path="res://Instance/Inventory/Inventory.tscn" id="8_0easb"]
-[ext_resource type="Script" path="res://Scripts/Inventory/InventoryInterface.cs" id="8_g00po"]
-[ext_resource type="PackedScene" uid="uid://o0afxj0l7tri" path="res://Instance/Inventory/Slot.tscn" id="12_h77lm"]
 [ext_resource type="PackedScene" uid="uid://b3reehvbmryik" path="res://Instance/Chest.tscn" id="13_7sfej"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wnita"]
@@ -46,14 +42,13 @@ size = Vector2(500, 500)
 data = PackedVector3Array(250, 0, 250, -250, 0, 250, 250, 0, -250, -250, 0, 250, -250, 0, -250, 250, 0, -250)
 
 [node name="Main" type="Node"]
-script = ExtResource("1_t717w")
+script = ExtResource("1_gan2u")
 
 [node name="Heal Potion" parent="." instance=ExtResource("2_tb7v6")]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 2.83032, 0.505355, -2.82845)
 
 [node name="Mana Potion" parent="." instance=ExtResource("3_hl168")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.110529, 0.50561, -2.20606)
-gravity_scale = 0.12
 can_sleep = false
 
 [node name="Zombie" parent="." instance=ExtResource("2_8jcbc")]
@@ -67,7 +62,6 @@ transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75
 shadow_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("2_j51ar")]
-InventoryData = ExtResource("6_ajf7f")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 material_override = SubResource("StandardMaterial3D_mgwn1")
@@ -80,42 +74,6 @@ shape = SubResource("ConcavePolygonShape3D_5bsnu")
 
 [node name="SkeletonChar" parent="." instance=ExtResource("6_e0ldb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.52025, 0, -4.01849)
-
-[node name="UI" type="CanvasLayer" parent="."]
-
-[node name="InventoryInterface" type="Control" parent="UI"]
-visible = false
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-script = ExtResource("8_g00po")
-
-[node name="PlayerInventory" parent="UI/InventoryInterface" instance=ExtResource("8_0easb")]
-layout_mode = 0
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_left = 10.0
-offset_top = 10.0
-offset_right = -14.0
-offset_bottom = -14.0
-grow_horizontal = 1
-grow_vertical = 1
-
-[node name="GrabbedItem" parent="UI/InventoryInterface" instance=ExtResource("12_h77lm")]
-modulate = Color(1, 1, 1, 0.513726)
-self_modulate = Color(1, 1, 1, 0)
-layout_mode = 0
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_right = 64.0
-offset_bottom = 64.0
-grow_horizontal = 1
-grow_vertical = 1
 
 [node name="Chest" parent="." instance=ExtResource("13_7sfej")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -3)

@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dwmakndpiboh6"]
 
-[ext_resource type="Script" path="res://Scripts/Entity/Player.cs" id="1_62oaf"]
+[ext_resource type="Script" path="res://Scripts/Entity/player/player.gd" id="1_8lrm8"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_m80ev"]
 
@@ -11,11 +11,8 @@ points = PackedVector3Array(-0.125207, -0.532801, -0.480507, 0.0227831, 0.47607,
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 collision_layer = 3
 floor_block_on_wall = false
-script = ExtResource("1_62oaf")
-Sensivity = 0.002
-Speed = 10.0
-RunSpeed = 25.0
-JumpVelocity = 5.0
+script = ExtResource("1_8lrm8")
+movement_ease = 10.0
 
 [node name="Body" type="MeshInstance3D" parent="."]
 mesh = SubResource("CapsuleMesh_m80ev")
