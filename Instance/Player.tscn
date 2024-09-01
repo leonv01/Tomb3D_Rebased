@@ -1,6 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://dwmakndpiboh6"]
+[gd_scene load_steps=9 format=3 uid="uid://dwmakndpiboh6"]
 
 [ext_resource type="Script" path="res://Scripts/Entity/player/player.gd" id="1_8lrm8"]
+[ext_resource type="Resource" uid="uid://f8rspcbk2q2g" path="res://Ressource/Inventory/test_inventory.tres" id="2_52go5"]
+[ext_resource type="PackedScene" uid="uid://nuaf11vyhfqi" path="res://Ressource/Inventory/Inventory.tscn" id="2_twqeq"]
+[ext_resource type="Script" path="res://Scripts/Inventory/inventory_interface.gd" id="3_kbt41"]
+[ext_resource type="PackedScene" uid="uid://0f4ahen5syw5" path="res://Ressource/Inventory/Slot.tscn" id="5_yafnr"]
+[ext_resource type="Script" path="res://Scripts/UI/interact_ui.gd" id="6_5h7xe"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_m80ev"]
 
@@ -9,10 +14,11 @@ points = PackedVector3Array(-0.125207, -0.532801, -0.480507, 0.0227831, 0.47607,
 
 [node name="Player" type="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-collision_layer = 3
+collision_layer = 2
 floor_block_on_wall = false
 script = ExtResource("1_8lrm8")
 movement_ease = 10.0
+inventory_data = ExtResource("2_52go5")
 walk_speed = 5.0
 run_speed = 10.0
 
@@ -37,19 +43,42 @@ light_color = Color(0.817746, 0.724082, 0.68078, 1)
 light_energy = 2.89
 spot_range = 14.08
 
-[node name="HUD" type="Control" parent="."]
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="InventoryInterface" type="Control" parent="UI"]
 visible = false
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("3_kbt41")
 
-[node name="InfoLabel" type="Label" parent="HUD"]
+[node name="PlayerInventory" parent="UI/InventoryInterface" instance=ExtResource("2_twqeq")]
 layout_mode = 0
-offset_right = 26.0
-offset_bottom = 23.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 50.0
+offset_bottom = 50.0
 
-[node name="Crosshair" type="ColorRect" parent="."]
+[node name="ExternalInventory" parent="UI/InventoryInterface" instance=ExtResource("2_twqeq")]
+visible = false
+layout_mode = 0
+offset_left = 379.0
+offset_top = 233.0
+offset_right = 419.0
+offset_bottom = 273.0
+
+[node name="GrabbedSlot" parent="UI/InventoryInterface" instance=ExtResource("5_yafnr")]
+visible = false
+modulate = Color(1, 1, 1, 0.403922)
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+
+[node name="Crosshair" type="ColorRect" parent="UI"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -62,3 +91,18 @@ offset_bottom = 2.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+
+[node name="InteractLabel" type="Label" parent="UI/Crosshair"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = 6.0
+offset_right = 20.0
+offset_bottom = 29.0
+grow_horizontal = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+text = "Press [e] to pick up"
+script = ExtResource("6_5h7xe")

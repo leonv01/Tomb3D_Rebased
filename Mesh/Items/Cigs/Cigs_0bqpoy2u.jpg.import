@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://navwghnhlyw3"
-path.s3tc="res://.godot/imported/PotionSymbol.png-ca1c3e9e800b28b50ee785b4bd2146aa.s3tc.ctex"
+uid="uid://msbdbc0g70qw"
+path.s3tc="res://.godot/imported/Cigs_0bqpoy2u.jpg-8f429e809ee8fb62b6555463a2fe99a0.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "75ffcdad5f6804e54f3fbf6adf186d4b"
+}
 
 [deps]
 
-source_file="res://Mesh/Items/HealPotion/PotionSymbol.png"
-dest_files=["res://.godot/imported/PotionSymbol.png-ca1c3e9e800b28b50ee785b4bd2146aa.s3tc.ctex"]
+source_file="res://Mesh/Items/Cigs/Cigs_0bqpoy2u.jpg"
+dest_files=["res://.godot/imported/Cigs_0bqpoy2u.jpg-8f429e809ee8fb62b6555463a2fe99a0.s3tc.ctex"]
 
 [params]
 

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://c6k353np4grbe"]
+
+[ext_resource type="Script" path="res://Scripts/Item/item_data.gd" id="1_w3bnh"]
+[ext_resource type="Texture2D" uid="uid://navwghnhlyw3" path="res://Ressource/Items/HealPotion.png" id="2_lu608"]
+
+[resource]
+script = ExtResource("1_w3bnh")
+name = "Heal Potion"
+description = "Heals"
+stackable = true
+texture = ExtResource("2_lu608")

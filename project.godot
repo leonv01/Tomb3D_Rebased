@@ -12,7 +12,7 @@ config_version=5
 
 config/name="Tomb3D"
 run/main_scene="res://Instance/World.tscn"
-config/features=PackedStringArray("4.3", "C#", "Forward Plus")
+config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
 [display]
@@ -20,8 +20,8 @@ config/icon="res://icon.svg"
 window/size/viewport_width=640
 window/size/viewport_height=480
 window/size/always_on_top=true
-window/size/window_width_override=1280
-window/size/window_height_override=720
+window/size/window_width_override=1920
+window/size/window_height_override=1080
 window/stretch/mode="viewport"
 
 [dotnet]
@@ -30,7 +30,8 @@ project/assembly_name="Tomb3D"
 
 [global_group]
 
-externalGroup=""
+external_inventory=""
+pick_up=""
 
 [input]
 

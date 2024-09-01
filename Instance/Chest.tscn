@@ -1,6 +1,19 @@
-[gd_scene load_steps=5 format=3 uid="uid://b3reehvbmryik"]
+[gd_scene load_steps=11 format=3 uid="uid://b3reehvbmryik"]
 
+[ext_resource type="Script" path="res://Scripts/Interactable/chest.gd" id="1_b5x4b"]
 [ext_resource type="Texture2D" uid="uid://bv25dlns5dkpx" path="res://Addons/kenney_prototype_textures/red/texture_13.png" id="1_q2rw6"]
+[ext_resource type="Script" path="res://Scripts/Inventory/inventory_data.gd" id="2_ue74p"]
+[ext_resource type="Script" path="res://Scripts/Inventory/slot_data.gd" id="3_854ms"]
+[ext_resource type="Resource" uid="uid://c6k353np4grbe" path="res://Ressource/Items/heal_potion.tres" id="4_ac71t"]
+
+[sub_resource type="Resource" id="Resource_481ip"]
+script = ExtResource("3_854ms")
+item_data = ExtResource("4_ac71t")
+quantity = 4
+
+[sub_resource type="Resource" id="Resource_asa46"]
+script = ExtResource("2_ue74p")
+slot_datas = Array[ExtResource("3_854ms")]([SubResource("Resource_481ip"), null, null, null, null, null])
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mes6o"]
 albedo_texture = ExtResource("1_q2rw6")
@@ -10,9 +23,11 @@ albedo_texture = ExtResource("1_q2rw6")
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_53ay3"]
 points = PackedVector3Array(-0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5)
 
-[node name="Chest" type="StaticBody3D"]
+[node name="Chest" type="StaticBody3D" groups=["external_inventory"]]
 collision_layer = 5
 collision_mask = 0
+script = ExtResource("1_b5x4b")
+inventory_data = SubResource("Resource_asa46")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)

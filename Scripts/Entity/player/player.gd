@@ -9,17 +9,27 @@ extends Entity
 @export var movement_ease: float = 5.0
 @export var jump_movement_ease: float = 2.0
 
+@export var inventory_data: InventoryData
+
 @onready var head: Node3D = $Head
 @onready var camera: Camera3D = $Head/Camera
-@onready var hud: Control = $HUD
-@onready var info_label: Label = $HUD/InfoLabel
 @onready var interact_cast: RayCast3D = $Head/Camera/InteractCast
+@onready var inventory_interface: Control = $UI/InventoryInterface
+@onready var interact_label: Label = $UI/Crosshair/InteractLabel
 
 enum PLAYER_STATES { WALKING, RUNNING }
 var player_state: PLAYER_STATES = PLAYER_STATES.WALKING
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	inventory_interface.set_player_inventory_data(inventory_data)
+	
+func _process(delta: float) -> void:
+	if interact_cast.is_colliding():
+		interact_label.show()
+	else:
+		interact_label.hide()
+		
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -57,7 +67,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(max_look_down_angle), deg_to_rad(max_look_up_angle))
 	
 	if Input.is_action_just_pressed("inventory"):
-		print("Open inventory")
+		toggle_inventory()
 	
 	if Input.is_action_just_pressed("interact"):
 		interact()
@@ -74,4 +84,25 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func interact() -> void:
 	if interact_cast.is_colliding():
-		print("Colliding with ", interact_cast.get_collider())
+		var collided_object: Node = interact_cast.get_collider()
+		
+		if collided_object.is_in_group("external_inventory"):
+			toggle_inventory(collided_object.inventory_data)
+			
+		if collided_object.is_in_group("pick_up"):
+			collided_object.picked_up(inventory_data)
+		
+
+func toggle_inventory(external_inventory_data: InventoryData = null) -> void:	
+	inventory_interface.visible = not inventory_interface.visible
+	
+	if external_inventory_data and not inventory_interface.is_external_open:
+		inventory_interface.set_external_inventory_data(external_inventory_data)
+	else:
+		inventory_interface.clear_external_inventory_data()
+		
+	if inventory_interface.visible:
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	else:
+		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+		

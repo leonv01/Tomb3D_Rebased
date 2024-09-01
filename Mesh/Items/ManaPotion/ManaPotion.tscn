@@ -1,5 +1,6 @@
-[gd_scene load_steps=17 format=4 uid="uid://doih3ftakkn30"]
+[gd_scene load_steps=18 format=4 uid="uid://doih3ftakkn30"]
 
+[ext_resource type="Script" path="res://Scripts/Item/Potion/ManaPotion.gd" id="1_c0oyq"]
 [ext_resource type="Shader" path="res://Shader/Misc/Glass.gdshader" id="1_vwqx7"]
 [ext_resource type="Texture2D" uid="uid://dip6nvth5wbio" path="res://Mesh/Items/ManaPotion/rope_diff.png" id="2_cpain"]
 
@@ -88,7 +89,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_nt7rt")
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_odg3u"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_d6kjk"]
 points = PackedVector3Array(1.58261, 1.12408, -0.250572, -1.61928, 1.00081, -0.0141262, -1.61659, 1.06186, -0.0735009, 0.0463385, 3.93468, 0.665488, 0.103662, 0.653476, 1.52009, 0.0450715, 0.763376, -1.55958, 0.170102, 3.93468, -0.635193, 0.284817, 0.0334244, -0.674096, 1.40501, 1.00583, 0.813656, -0.836987, 0.658832, 1.27905, -0.635193, 3.93468, 0.169768, -0.887863, 1.19411, -1.3542, 0.665822, 3.93468, 0.0456714, -0.904639, 0.111409, -0.429639, 0.812839, 1.12488, -1.43213, 0.875581, 0.112587, 0.51908, -0.805393, 1.32984, 1.34527, 0.858692, 1.19568, 1.38232, -0.544167, 0.125711, 0.869125, -0.0140084, 1.18228, 1.64336, 1.28836, 0.589942, -0.783968, -1.43213, 1.12488, 0.812839, -1.43858, 1.12119, -0.785767, 1.34587, 1.32885, -0.805459, 0.0441361, 1.31931, -1.56772, -0.526011, 3.77586, -0.298004, -0.726515, 0.58713, -1.31947, -1.3158, 0.590884, 0.754785, 0.603773, 3.93468, 0.293531, 1.29761, 0.580048, 0.760672, -0.387333, 3.93468, 0.541725, 0.541725, 3.93468, -0.387333)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tilwe"]
@@ -175,9 +176,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_iuydu")
 
 [node name="ManaPotion" type="RigidBody3D"]
-collision_layer = 7
-collision_mask = 7
-mass = 0.001
+script = ExtResource("1_c0oyq")
 
 [node name="Rope" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
@@ -192,7 +191,7 @@ skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
-shape = SubResource("ConvexPolygonShape3D_odg3u")
+shape = SubResource("ConvexPolygonShape3D_d6kjk")
 
 [node name="Wax" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)

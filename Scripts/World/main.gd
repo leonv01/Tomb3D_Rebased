@@ -4,7 +4,8 @@ extends Node
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	for node in get_tree().get_nodes_in_group("external_inventory"):
+		node.toggle_inventory.connect(player.toggle_inventory)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

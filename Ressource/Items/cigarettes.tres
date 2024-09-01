@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="SlotData" load_steps=5 format=3 uid="uid://b7c2f1lvmmc20"]
+
+[ext_resource type="Script" path="res://Scripts/Item/item_data.gd" id="1_k1nx7"]
+[ext_resource type="Script" path="res://Scripts/Inventory/slot_data.gd" id="1_yg8aj"]
+[ext_resource type="Texture2D" uid="uid://cht1kwuhk51wr" path="res://Ressource/Items/cigarettes.png" id="2_2i2l8"]
+
+[sub_resource type="Resource" id="Resource_kv4uy"]
+script = ExtResource("1_k1nx7")
+name = "Cigarettes"
+description = "Smoking buffs "
+stackable = true
+texture = ExtResource("2_2i2l8")
+
+[resource]
+script = ExtResource("1_yg8aj")
+item_data = SubResource("Resource_kv4uy")
+quantity = 1
