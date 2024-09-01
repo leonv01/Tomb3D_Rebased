@@ -4,6 +4,8 @@ extends Control
 @onready var grabbed_slot: PanelContainer = $GrabbedSlot
 @onready var external_inventory: PanelContainer = $ExternalInventory
 
+signal drop_slot_data(slot_data: SlotData)
+
 var external_inventory_data: InventoryData
 var grabbed_slot_data: SlotData
 var is_external_open: bool = false
@@ -56,3 +58,16 @@ func update_grabbed_slot() -> void:
 	else:
 		grabbed_slot.hide()
 	pass
+
+
+func _on_gui_input(event: InputEvent) -> void:
+	if event is InputEventMouseButton \
+			and event.is_pressed() \
+			and grabbed_slot_data:
+		
+		match event.button_index:
+			MOUSE_BUTTON_LEFT:
+				drop_slot_data.emit(grabbed_slot_data)
+				grabbed_slot_data = null
+				
+		update_grabbed_slot()

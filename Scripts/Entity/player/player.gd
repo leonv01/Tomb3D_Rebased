@@ -106,3 +106,7 @@ func toggle_inventory(external_inventory_data: InventoryData = null) -> void:
 	else:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 		
+
+func get_drop_position() -> Vector3:
+	var direction: Vector3 = -camera.global_transform.basis.z
+	return camera.global_position + direction
