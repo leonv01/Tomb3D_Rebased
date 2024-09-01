@@ -10,6 +10,7 @@ name = "Cigarettes"
 description = "Smoking buffs "
 stackable = true
 texture = ExtResource("2_2i2l8")
+scene_path = "res://Mesh/Items/Cigs/Cigs.tscn"
 
 [resource]
 script = ExtResource("1_yg8aj")

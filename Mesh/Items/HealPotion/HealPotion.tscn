@@ -188,7 +188,6 @@ shadow_mesh = SubResource("ArrayMesh_cnpoc")
 
 [node name="Heal Potion" type="RigidBody3D" groups=["pick_up"]]
 collision_layer = 4
-lock_rotation = true
 script = ExtResource("1_u5cs7")
 slot_data = SubResource("Resource_p0wqm")
 
