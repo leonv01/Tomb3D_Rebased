@@ -7,5 +7,5 @@
 script = ExtResource("1_xaaxb")
 name = "Mana Potion"
 description = "Restores Mana"
-stackable = false
+stackable = true
 texture = ExtResource("2_x3s57")

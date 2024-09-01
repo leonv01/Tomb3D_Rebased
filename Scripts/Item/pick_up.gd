@@ -7,7 +7,7 @@ extends RigidBody3D
 
 @export_category("Item Move Properties")
 @export var rotation_speed: float = 90.0
-@export var move_amplitude: float = 0.5
+@export var move_amplitude: float = 0.2
 @export var move_speed: float = 2.0
 
 var start_position: Vector3

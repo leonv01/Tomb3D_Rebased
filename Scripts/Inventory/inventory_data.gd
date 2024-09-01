@@ -48,11 +48,20 @@ func drop_single_slot_data(grabbed_slot_data, index) -> SlotData:
 		return null
 
 func picked_up_slot_data(slot_data: SlotData) -> bool:
-	
 	for index in slot_datas.size():
-		if not slot_datas[index]:
-			slot_datas[index] = slot_data
-			print("inserted at %d" % index)
+		var slot_at: SlotData = slot_datas[index]
+		if slot_at and slot_at.can_fully_merge_with(slot_data):
+			slot_at.fully_merge_with(slot_data)
+			slot_datas[index] = slot_at
+			inventory_updated.emit(self)
+			return true
+			
+	for index in slot_datas.size():
+		var slot_at: SlotData = slot_datas[index]
+		
+		if not slot_at:
+			slot_at = slot_data
+			slot_datas[index] = slot_at
 			inventory_updated.emit(self)
 			return true
 			

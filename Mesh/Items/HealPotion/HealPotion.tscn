@@ -1,9 +1,16 @@
-[gd_scene load_steps=20 format=4 uid="uid://bixojdgqm5356"]
+[gd_scene load_steps=23 format=4 uid="uid://bixojdgqm5356"]
 
-[ext_resource type="Script" path="res://Scripts/Item/Potion/HealPotion.gd" id="1_6iqd3"]
+[ext_resource type="Script" path="res://Scripts/Item/pick_up.gd" id="1_u5cs7"]
 [ext_resource type="Texture2D" uid="uid://16rnpf3syspt" path="res://Mesh/Items/HealPotion/rope_diff.png" id="2_d7a0p"]
+[ext_resource type="Resource" uid="uid://c6k353np4grbe" path="res://Ressource/Items/heal_potion.tres" id="2_rlmfa"]
 [ext_resource type="Shader" path="res://Shader/Misc/Glass.gdshader" id="2_waqug"]
 [ext_resource type="Texture2D" uid="uid://boyuj300djxfd" path="res://Mesh/Items/HealPotion/Cork.jpg" id="3_1aa67"]
+[ext_resource type="Script" path="res://Scripts/Inventory/slot_data.gd" id="3_t5otd"]
+
+[sub_resource type="Resource" id="Resource_p0wqm"]
+script = ExtResource("3_t5otd")
+item_data = ExtResource("2_rlmfa")
+quantity = 5
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8gqjw"]
 render_priority = 0
@@ -179,9 +186,11 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_cnpoc")
 
-[node name="Heal Potion" type="RigidBody3D"]
-script = ExtResource("1_6iqd3")
-move_amplitude = 0.25
+[node name="Heal Potion" type="RigidBody3D" groups=["pick_up"]]
+collision_layer = 4
+lock_rotation = true
+script = ExtResource("1_u5cs7")
+slot_data = SubResource("Resource_p0wqm")
 
 [node name="Bottle" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)

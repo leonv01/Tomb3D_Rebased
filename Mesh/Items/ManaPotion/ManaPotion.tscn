@@ -1,8 +1,15 @@
-[gd_scene load_steps=18 format=4 uid="uid://doih3ftakkn30"]
+[gd_scene load_steps=21 format=4 uid="uid://doih3ftakkn30"]
 
-[ext_resource type="Script" path="res://Scripts/Item/Potion/ManaPotion.gd" id="1_c0oyq"]
+[ext_resource type="Script" path="res://Scripts/Item/pick_up.gd" id="1_peywm"]
 [ext_resource type="Shader" path="res://Shader/Misc/Glass.gdshader" id="1_vwqx7"]
 [ext_resource type="Texture2D" uid="uid://dip6nvth5wbio" path="res://Mesh/Items/ManaPotion/rope_diff.png" id="2_cpain"]
+[ext_resource type="Resource" uid="uid://wcbed7shjn1s" path="res://Ressource/Items/mana_potion.tres" id="2_dfox7"]
+[ext_resource type="Script" path="res://Scripts/Inventory/slot_data.gd" id="3_c2m2w"]
+
+[sub_resource type="Resource" id="Resource_acu7h"]
+script = ExtResource("3_c2m2w")
+item_data = ExtResource("2_dfox7")
+quantity = 3
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u8x8g"]
 resource_name = "Rope"
@@ -175,8 +182,11 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_iuydu")
 
-[node name="ManaPotion" type="RigidBody3D"]
-script = ExtResource("1_c0oyq")
+[node name="ManaPotion" type="RigidBody3D" groups=["pick_up"]]
+collision_layer = 4
+lock_rotation = true
+script = ExtResource("1_peywm")
+slot_data = SubResource("Resource_acu7h")
 
 [node name="Rope" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
