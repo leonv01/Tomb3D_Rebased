@@ -1,14 +1,23 @@
-[gd_scene load_steps=11 format=3 uid="uid://b3reehvbmryik"]
+[gd_scene load_steps=13 format=3 uid="uid://b3reehvbmryik"]
 
 [ext_resource type="Script" path="res://Scripts/Interactable/chest.gd" id="1_b5x4b"]
 [ext_resource type="Texture2D" uid="uid://bv25dlns5dkpx" path="res://Addons/kenney_prototype_textures/red/texture_13.png" id="1_q2rw6"]
 [ext_resource type="Script" path="res://Scripts/Inventory/inventory_data.gd" id="2_ue74p"]
 [ext_resource type="Script" path="res://Scripts/Inventory/slot_data.gd" id="3_854ms"]
-[ext_resource type="Resource" uid="uid://c6k353np4grbe" path="res://Ressource/Items/heal_potion.tres" id="4_ac71t"]
+[ext_resource type="Script" path="res://Scripts/Item/item_data.gd" id="4_wjm6l"]
+[ext_resource type="Texture2D" uid="uid://navwghnhlyw3" path="res://Ressource/Items/HealPotion.png" id="5_j3bre"]
+
+[sub_resource type="Resource" id="Resource_46ohx"]
+script = ExtResource("4_wjm6l")
+name = "Heal Potion"
+description = "Heals"
+stackable = true
+texture = ExtResource("5_j3bre")
+scene_path = "res://Mesh/Items/HealPotion/HealPotion.tscn"
 
 [sub_resource type="Resource" id="Resource_481ip"]
 script = ExtResource("3_854ms")
-item_data = ExtResource("4_ac71t")
+item_data = SubResource("Resource_46ohx")
 quantity = 4
 
 [sub_resource type="Resource" id="Resource_asa46"]

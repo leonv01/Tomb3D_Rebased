@@ -1,15 +1,24 @@
-[gd_scene load_steps=23 format=4 uid="uid://bixojdgqm5356"]
+[gd_scene load_steps=25 format=4 uid="uid://bixojdgqm5356"]
 
 [ext_resource type="Script" path="res://Scripts/Item/pick_up.gd" id="1_u5cs7"]
 [ext_resource type="Texture2D" uid="uid://16rnpf3syspt" path="res://Mesh/Items/HealPotion/rope_diff.png" id="2_d7a0p"]
-[ext_resource type="Resource" uid="uid://c6k353np4grbe" path="res://Ressource/Items/heal_potion.tres" id="2_rlmfa"]
 [ext_resource type="Shader" path="res://Shader/Misc/Glass.gdshader" id="2_waqug"]
+[ext_resource type="Script" path="res://Scripts/Item/item_data.gd" id="2_xxua4"]
 [ext_resource type="Texture2D" uid="uid://boyuj300djxfd" path="res://Mesh/Items/HealPotion/Cork.jpg" id="3_1aa67"]
+[ext_resource type="Texture2D" uid="uid://navwghnhlyw3" path="res://Ressource/Items/HealPotion.png" id="3_1lt7q"]
 [ext_resource type="Script" path="res://Scripts/Inventory/slot_data.gd" id="3_t5otd"]
+
+[sub_resource type="Resource" id="Resource_46ohx"]
+script = ExtResource("2_xxua4")
+name = "Heal Potion"
+description = "Heals"
+stackable = true
+texture = ExtResource("3_1lt7q")
+scene_path = "res://Mesh/Items/HealPotion/HealPotion.tscn"
 
 [sub_resource type="Resource" id="Resource_p0wqm"]
 script = ExtResource("3_t5otd")
-item_data = ExtResource("2_rlmfa")
+item_data = SubResource("Resource_46ohx")
 quantity = 5
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8gqjw"]

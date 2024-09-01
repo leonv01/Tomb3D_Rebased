@@ -1,12 +1,13 @@
-[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://c6k353np4grbe"]
+[gd_resource type="Resource" script_class="ItemDataConsumable" load_steps=3 format=3 uid="uid://b0rspbffded02"]
 
-[ext_resource type="Script" path="res://Scripts/Item/item_data.gd" id="1_w3bnh"]
+[ext_resource type="Script" path="res://Scripts/Item/item_data_consumable.gd" id="1_pax50"]
 [ext_resource type="Texture2D" uid="uid://navwghnhlyw3" path="res://Ressource/Items/HealPotion.png" id="2_lu608"]
 
 [resource]
-script = ExtResource("1_w3bnh")
+script = ExtResource("1_pax50")
+heal_value = 2
 name = "Heal Potion"
-description = "Heals"
+description = "Smells like RedBull"
 stackable = true
 texture = ExtResource("2_lu608")
 scene_path = "res://Mesh/Items/HealPotion/HealPotion.tscn"

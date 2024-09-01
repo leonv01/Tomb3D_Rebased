@@ -16,11 +16,13 @@ extends Entity
 @onready var interact_cast: RayCast3D = $Head/Camera/InteractCast
 @onready var inventory_interface: Control = $UI/InventoryInterface
 @onready var interact_label: Label = $UI/Crosshair/InteractLabel
+@onready var health_label: Label = $UI/Properties/HealthLabel
 
 enum PLAYER_STATES { WALKING, RUNNING }
 var player_state: PLAYER_STATES = PLAYER_STATES.WALKING
 
 func _ready() -> void:
+	PlayerManager.player = self
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	inventory_interface.set_player_inventory_data(inventory_data)
 	
@@ -29,7 +31,8 @@ func _process(delta: float) -> void:
 		interact_label.show()
 	else:
 		interact_label.hide()
-		
+	
+	health_label.text = "Health: %d" % health
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.

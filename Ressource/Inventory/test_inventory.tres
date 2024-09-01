@@ -1,25 +1,26 @@
-[gd_resource type="Resource" script_class="InventoryData" load_steps=8 format=3 uid="uid://f8rspcbk2q2g"]
+[gd_resource type="Resource" script_class="InventoryData" load_steps=9 format=3 uid="uid://f8rspcbk2q2g"]
 
 [ext_resource type="Script" path="res://Scripts/Inventory/inventory_data.gd" id="1_vkypd"]
 [ext_resource type="Script" path="res://Scripts/Inventory/slot_data.gd" id="2_61iao"]
-[ext_resource type="Resource" uid="uid://c6k353np4grbe" path="res://Ressource/Items/heal_potion.tres" id="3_7uel0"]
+[ext_resource type="Resource" uid="uid://b0rspbffded02" path="res://Ressource/Items/heal_potion.tres" id="3_7uel0"]
 [ext_resource type="Resource" uid="uid://wcbed7shjn1s" path="res://Ressource/Items/mana_potion.tres" id="4_pkr4y"]
+[ext_resource type="Resource" uid="uid://bkh8klmqbb5go" path="res://Ressource/Items/cigarette.tres" id="5_k5j2g"]
 
-[sub_resource type="Resource" id="Resource_p8l4h"]
+[sub_resource type="Resource" id="Resource_sppd6"]
 script = ExtResource("2_61iao")
 item_data = ExtResource("3_7uel0")
-quantity = 6
+quantity = 5
 
-[sub_resource type="Resource" id="Resource_j10jt"]
+[sub_resource type="Resource" id="Resource_ruker"]
 script = ExtResource("2_61iao")
 item_data = ExtResource("4_pkr4y")
-quantity = 4
+quantity = 1
 
-[sub_resource type="Resource" id="Resource_mew3x"]
+[sub_resource type="Resource" id="Resource_qf07g"]
 script = ExtResource("2_61iao")
-item_data = ExtResource("3_7uel0")
-quantity = 7
+item_data = ExtResource("5_k5j2g")
+quantity = 50
 
 [resource]
 script = ExtResource("1_vkypd")
-slot_datas = Array[ExtResource("2_61iao")]([null, null, SubResource("Resource_p8l4h"), null, SubResource("Resource_j10jt"), null, null, SubResource("Resource_mew3x"), null, null, null, null, null, null, null, null, null, null])
+slot_datas = Array[ExtResource("2_61iao")]([null, null, null, null, SubResource("Resource_sppd6"), null, null, null, SubResource("Resource_ruker"), null, null, null, SubResource("Resource_qf07g"), null, null, null, null, null])

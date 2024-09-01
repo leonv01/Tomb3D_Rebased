@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemDataConsumable" load_steps=3 format=3 uid="uid://bkh8klmqbb5go"]
+
+[ext_resource type="Script" path="res://Scripts/Item/item_data_consumable.gd" id="1_qhfxv"]
+[ext_resource type="Texture2D" uid="uid://cht1kwuhk51wr" path="res://Ressource/Items/cigarettes.png" id="2_xphcx"]
+
+[resource]
+script = ExtResource("1_qhfxv")
+heal_value = 25
+name = "Cigarette"
+description = "Heals
+"
+stackable = true
+texture = ExtResource("2_xphcx")
+scene_path = "res://Mesh/Items/Cigs/Cigs.tscn"

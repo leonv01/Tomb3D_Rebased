@@ -1,9 +1,15 @@
-[gd_scene load_steps=10 format=4 uid="uid://dhuqq55mpxy4b"]
+[gd_scene load_steps=12 format=4 uid="uid://dhuqq55mpxy4b"]
 
 [ext_resource type="Script" path="res://Scripts/Item/pick_up.gd" id="1_nn5se"]
 [ext_resource type="Texture2D" uid="uid://bbran3kfbqd3q" path="res://Mesh/Items/Cigs/Cigs_Cigarette_Texture_64.png" id="2_62h8o"]
-[ext_resource type="Resource" uid="uid://b7c2f1lvmmc20" path="res://Ressource/Items/cigarettes.tres" id="2_jqmkj"]
+[ext_resource type="Resource" uid="uid://bkh8klmqbb5go" path="res://Ressource/Items/cigarette.tres" id="2_b5cwb"]
+[ext_resource type="Script" path="res://Scripts/Inventory/slot_data.gd" id="3_ietvn"]
 [ext_resource type="Texture2D" uid="uid://msbdbc0g70qw" path="res://Mesh/Items/Cigs/Cigs_0bqpoy2u.jpg" id="3_pvr34"]
+
+[sub_resource type="Resource" id="Resource_n1hbh"]
+script = ExtResource("3_ietvn")
+item_data = ExtResource("2_b5cwb")
+quantity = 50
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e6qnp"]
 resource_name = "Fag"
@@ -81,7 +87,7 @@ points = PackedVector3Array(2.22058, 1.0583, 0.931579, -2.44053, 0.565471, -3.72
 collision_layer = 4
 lock_rotation = true
 script = ExtResource("1_nn5se")
-slot_data = ExtResource("2_jqmkj")
+slot_data = SubResource("Resource_n1hbh")
 
 [node name="Pack" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
