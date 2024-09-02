@@ -3,12 +3,14 @@ extends Control
 @onready var player_inventory: PanelContainer = $PlayerInventory
 @onready var grabbed_slot: PanelContainer = $GrabbedSlot
 @onready var external_inventory: PanelContainer = $ExternalInventory
+@onready var equip_inventory: PanelContainer = $EquipInventory
 
 signal drop_slot_data(slot_data: SlotData)
 
 var external_inventory_data: InventoryData
 var grabbed_slot_data: SlotData
 var is_external_open: bool = false
+var external_inventory_position: Vector3
 
 func _physics_process(delta: float) -> void:
 	grabbed_slot.global_position = get_global_mouse_position() + Vector2(5, 5)
@@ -17,8 +19,9 @@ func set_player_inventory_data(inventory_data: InventoryData) -> void:
 	inventory_data.inventory_interact.connect(on_inventory_interact)
 	player_inventory.set_inventory_data(inventory_data)
 
-func set_external_inventory_data(inventory_data: InventoryData) -> void:
+func set_external_inventory_data(inventory_data: InventoryData, _external_inventory_position) -> void:
 	is_external_open = true
+	external_inventory_position = _external_inventory_position
 	external_inventory_data = inventory_data
 	
 	inventory_data.inventory_interact.connect(on_inventory_interact)
@@ -26,9 +29,14 @@ func set_external_inventory_data(inventory_data: InventoryData) -> void:
 	
 	external_inventory.show()
 	
+func set_equip_inventory_data(inventory_data: InventoryData) -> void:
+	inventory_data.inventory_interact.connect(on_inventory_interact)
+	equip_inventory.set_inventory_data(inventory_data)
+	
 func clear_external_inventory_data() -> void:
 	if external_inventory_data:
 		is_external_open = false
+		external_inventory_position = Vector3.ZERO
 		var inventory_data: InventoryData = external_inventory_data
 		
 		inventory_data.inventory_interact.disconnect(on_inventory_interact)
@@ -76,8 +84,11 @@ func _on_gui_input(event: InputEvent) -> void:
 					grabbed_slot_data = null
 		update_grabbed_slot()
 
-
 func _on_visibility_changed() -> void:
 	if not visible and grabbed_slot_data:
 		drop_slot_data.emit(grabbed_slot_data)
 		grabbed_slot_data = null
+
+func check_external_inventory_in_range(_position: Vector3, max_range: int) -> void:
+	if external_inventory_position.distance_to(_position) > max_range and is_external_open:
+		external_inventory.hide()
