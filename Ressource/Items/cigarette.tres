@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_qhfxv")
 heal_value = 25
-name = "Cigarette"
+name = "Cigarettes"
 description = "Heals
 "
 stackable = true
