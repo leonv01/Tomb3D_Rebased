@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cl106p0j70y"
-path="res://.godot/imported/Mana Potion.gltf-528d596f0c25a1640d9113951de1dd4d.scn"
+uid="uid://3y8vgwr82cqb"
+path="res://.godot/imported/Barrell.glb-b3f76d59a5bb90791430e608c1bec8dd.scn"
 
 [deps]
 
-source_file="res://Mesh/Items/ManaPotion/Mana Potion.gltf"
-dest_files=["res://.godot/imported/Mana Potion.gltf-528d596f0c25a1640d9113951de1dd4d.scn"]
+source_file="res://Mesh/Misc/Barrell/Barrell.glb"
+dest_files=["res://.godot/imported/Barrell.glb-b3f76d59a5bb90791430e608c1bec8dd.scn"]
 
 [params]
 

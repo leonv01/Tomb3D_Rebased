@@ -1,14 +1,13 @@
-[gd_scene load_steps=17 format=3 uid="uid://hsik23gmclwv"]
+[gd_scene load_steps=16 format=3 uid="uid://hsik23gmclwv"]
 
 [ext_resource type="Script" path="res://Scripts/World/main.gd" id="1_gan2u"]
 [ext_resource type="PackedScene" uid="uid://byhpvvbtfvinv" path="res://Instance/Zombie.tscn" id="2_8jcbc"]
 [ext_resource type="PackedScene" uid="uid://dwmakndpiboh6" path="res://Instance/Player.tscn" id="2_j51ar"]
 [ext_resource type="Shader" path="res://Shader/Sky/SkyShader.gdshader" id="2_jd25d"]
-[ext_resource type="PackedScene" uid="uid://bixojdgqm5356" path="res://Mesh/Items/HealPotion/HealPotion.tscn" id="2_tb7v6"]
-[ext_resource type="PackedScene" uid="uid://doih3ftakkn30" path="res://Mesh/Items/ManaPotion/ManaPotion.tscn" id="3_hl168"]
 [ext_resource type="Texture2D" uid="uid://bwv3kogbfercw" path="res://Addons/kenney_prototype_textures/dark/texture_09.png" id="4_sdvq1"]
-[ext_resource type="PackedScene" uid="uid://k4ajynjcudis" path="res://Instance/Skeleton.tscn" id="6_e0ldb"]
-[ext_resource type="PackedScene" uid="uid://dhuqq55mpxy4b" path="res://Mesh/Items/Cigs/Cigs.tscn" id="10_ldsp6"]
+[ext_resource type="PackedScene" uid="uid://cr2ijykaaoobl" path="res://Mesh/Items/Cigs/cigs.tscn" id="7_jure7"]
+[ext_resource type="PackedScene" uid="uid://ebpy8gpaa6c1" path="res://Mesh/Items/HealPotion/heal_potion.tscn" id="8_5l0qq"]
+[ext_resource type="PackedScene" uid="uid://7kpxsvilpcba" path="res://Mesh/Items/ManaPotion/mana_potion.tscn" id="9_22rki"]
 [ext_resource type="PackedScene" uid="uid://b3reehvbmryik" path="res://Instance/Chest.tscn" id="13_7sfej"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wnita"]
@@ -45,12 +44,6 @@ data = PackedVector3Array(250, 0, 250, -250, 0, 250, 250, 0, -250, -250, 0, 250,
 [node name="Main" type="Node"]
 script = ExtResource("1_gan2u")
 
-[node name="Heal Potion" parent="." instance=ExtResource("2_tb7v6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.83032, 0.505355, -2.82845)
-
-[node name="Mana Potion" parent="." instance=ExtResource("3_hl168")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.110529, 0.50561, -2.20606)
-
 [node name="Zombie" parent="." instance=ExtResource("2_8jcbc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -5)
 
@@ -72,14 +65,14 @@ mesh = SubResource("PlaneMesh_imc7w")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_5bsnu")
 
-[node name="SkeletonChar" parent="." instance=ExtResource("6_e0ldb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.52025, 0, -4.01849)
-
 [node name="Chest" parent="." instance=ExtResource("13_7sfej")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -3)
 
-[node name="Cigs" parent="." instance=ExtResource("10_ldsp6")]
-transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 5, 1, -2)
+[node name="Cigs" parent="." instance=ExtResource("7_jure7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, 0)
 
-[node name="Cigs2" parent="." instance=ExtResource("10_ldsp6")]
-transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 5, 1, 0)
+[node name="Heal Potion" parent="." instance=ExtResource("8_5l0qq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.17959, 0, 1.27225)
+
+[node name="Mana Potion" parent="." instance=ExtResource("9_22rki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.89599, 0.404959, 0)

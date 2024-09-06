@@ -10,6 +10,9 @@ extends Entity
 @export var jump_movement_ease: float = 2.0
 
 @export var inventory_data: InventoryData
+@export var equip_inventory_data: InventoryDataEquip
+
+@onready var hotbar_inventory: PanelContainer = $UI/HotbarInventory
 
 @onready var head: Node3D = $Head
 @onready var camera: Camera3D = $Head/Camera
@@ -25,6 +28,10 @@ func _ready() -> void:
 	PlayerManager.player = self
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	inventory_interface.set_player_inventory_data(inventory_data)
+	inventory_interface.set_equip_inventory_data(equip_inventory_data)
+	
+	hotbar_inventory.set_inventory_data(inventory_data)
+	
 	
 func _process(delta: float) -> void:
 	if interact_cast.is_colliding():
@@ -102,11 +109,13 @@ func toggle_inventory(external_inventory_data: InventoryData = null) -> void:
 	if external_inventory_data and not inventory_interface.is_external_open:
 		inventory_interface.set_external_inventory_data(external_inventory_data)
 	else:
-		inventory_interface.clear_external_inventory_data()
+		inventory_interface.clear_external_inventory_data(external_inventory_data)
 		
 	if inventory_interface.visible:
+		hotbar_inventory.hide()
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	else:
+		hotbar_inventory.show()
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 		
 

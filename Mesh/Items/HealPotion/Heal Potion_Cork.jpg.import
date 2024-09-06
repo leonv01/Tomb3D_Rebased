@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://16rnpf3syspt"
-path.s3tc="res://.godot/imported/rope_diff.png-8f6ccf076cf8f72e1bc258d9702dec00.s3tc.ctex"
+uid="uid://c86ycnb33hfte"
+path.s3tc="res://.godot/imported/Heal Potion_Cork.jpg-79572de38df846333f030f357a55a3ed.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "12e7bcd272a4171ce79a61d640b20e54"
+}
 
 [deps]
 
-source_file="res://Mesh/Items/HealPotion/rope_diff.png"
-dest_files=["res://.godot/imported/rope_diff.png-8f6ccf076cf8f72e1bc258d9702dec00.s3tc.ctex"]
+source_file="res://Mesh/Items/HealPotion/Heal Potion_Cork.jpg"
+dest_files=["res://.godot/imported/Heal Potion_Cork.jpg-79572de38df846333f030f357a55a3ed.s3tc.ctex"]
 
 [params]
 

@@ -19,9 +19,8 @@ func set_player_inventory_data(inventory_data: InventoryData) -> void:
 	inventory_data.inventory_interact.connect(on_inventory_interact)
 	player_inventory.set_inventory_data(inventory_data)
 
-func set_external_inventory_data(inventory_data: InventoryData, _external_inventory_position) -> void:
+func set_external_inventory_data(inventory_data: InventoryData) -> void:
 	is_external_open = true
-	external_inventory_position = _external_inventory_position
 	external_inventory_data = inventory_data
 	
 	inventory_data.inventory_interact.connect(on_inventory_interact)
@@ -33,7 +32,7 @@ func set_equip_inventory_data(inventory_data: InventoryData) -> void:
 	inventory_data.inventory_interact.connect(on_inventory_interact)
 	equip_inventory.set_inventory_data(inventory_data)
 	
-func clear_external_inventory_data() -> void:
+func clear_external_inventory_data(external_inventory_data: InventoryData) -> void:
 	if external_inventory_data:
 		is_external_open = false
 		external_inventory_position = Vector3.ZERO

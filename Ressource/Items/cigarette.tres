@@ -11,4 +11,4 @@ description = "Heals
 "
 stackable = true
 texture = ExtResource("2_xphcx")
-scene_path = "res://Mesh/Items/Cigs/Cigs.tscn"
+scene_path = "res://Mesh/Items/Cigs/cigs.tscn"

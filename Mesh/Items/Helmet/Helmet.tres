@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemDataEquip" load_steps=3 format=3 uid="uid://b8brx641a4n16"]
+
+[ext_resource type="Script" path="res://Scripts/Item/item_data_equip.gd" id="1_vw66x"]
+[ext_resource type="Texture2D" uid="uid://bjog5dnvvab8c" path="res://icon.svg" id="2_cflxh"]
+
+[resource]
+script = ExtResource("1_vw66x")
+defense = 5
+name = "Helmet Debug"
+description = "Debug"
+stackable = false
+texture = ExtResource("2_cflxh")
+scene_path = ""
