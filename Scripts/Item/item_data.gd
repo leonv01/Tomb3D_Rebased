@@ -7,6 +7,7 @@ class_name ItemData
 @export var stackable: bool = false
 @export var texture: Texture
 @export var scene_path: String
+@export var scene: PackedScene
 
 func use(target) -> void:
 	pass

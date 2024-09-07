@@ -9,4 +9,4 @@ name = "Mana Potion"
 description = "Restores Mana"
 stackable = true
 texture = ExtResource("2_x3s57")
-scene_path = "res://Mesh/Items/ManaPotion/mana_potion.tscn"
+scene_path = "res://Mesh/Items/ManaPotion/ManaPotion.tscn"

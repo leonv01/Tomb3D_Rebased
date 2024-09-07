@@ -10,4 +10,4 @@ name = "Heal Potion"
 description = "Smells like RedBull"
 stackable = true
 texture = ExtResource("2_lu608")
-scene_path = "res://Mesh/Items/HealPotion/heal_potion.tscn"
+scene_path = "res://Mesh/Items/HealPotion/HealPotion.tscn"

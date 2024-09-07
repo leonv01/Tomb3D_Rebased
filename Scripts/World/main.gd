@@ -1,7 +1,7 @@
 extends Node
 
 @onready var player: CharacterBody3D = $Player
-const PickUp: PackedScene = preload("res://Mesh/Items/Cigs/Cigs.tscn")
+const PickUp: PackedScene = preload("res://Mesh/Items/Cigs/Cigarette.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -23,4 +23,3 @@ func _on_inventory_interface_drop_slot_data(slot_data: SlotData) -> void:
 	var pick_up: Node = SceneHandler.instantiate_scene(slot_data.item_data.scene_path, player.get_drop_position())
 	pick_up.transform.origin = player.get_drop_position()
 	add_child(pick_up)
-	#reparent(pick_up)

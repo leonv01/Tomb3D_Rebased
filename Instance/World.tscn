@@ -5,9 +5,9 @@
 [ext_resource type="PackedScene" uid="uid://dwmakndpiboh6" path="res://Instance/Player.tscn" id="2_j51ar"]
 [ext_resource type="Shader" path="res://Shader/Sky/SkyShader.gdshader" id="2_jd25d"]
 [ext_resource type="Texture2D" uid="uid://bwv3kogbfercw" path="res://Addons/kenney_prototype_textures/dark/texture_09.png" id="4_sdvq1"]
-[ext_resource type="PackedScene" uid="uid://cr2ijykaaoobl" path="res://Mesh/Items/Cigs/cigs.tscn" id="7_jure7"]
-[ext_resource type="PackedScene" uid="uid://ebpy8gpaa6c1" path="res://Mesh/Items/HealPotion/heal_potion.tscn" id="8_5l0qq"]
-[ext_resource type="PackedScene" uid="uid://7kpxsvilpcba" path="res://Mesh/Items/ManaPotion/mana_potion.tscn" id="9_22rki"]
+[ext_resource type="PackedScene" uid="uid://cr2ijykaaoobl" path="res://Mesh/Items/Cigs/Cigarette.tscn" id="7_jure7"]
+[ext_resource type="PackedScene" uid="uid://ebpy8gpaa6c1" path="res://Mesh/Items/HealPotion/HealPotion.tscn" id="8_5l0qq"]
+[ext_resource type="PackedScene" uid="uid://7kpxsvilpcba" path="res://Mesh/Items/ManaPotion/ManaPotion.tscn" id="9_22rki"]
 [ext_resource type="PackedScene" uid="uid://b3reehvbmryik" path="res://Instance/Chest.tscn" id="13_7sfej"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wnita"]
