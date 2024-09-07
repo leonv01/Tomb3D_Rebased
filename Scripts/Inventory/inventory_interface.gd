@@ -29,10 +29,11 @@ func set_player_inventory_data(inventory_data: InventoryData) -> void:
 
 ## Function to set external inventory data
 ## @param1: inventory data to be used
-func set_external_inventory_data(inventory_data: InventoryData) -> void:
+func set_external_inventory_data(inventory_data: InventoryData, _external_inventory_position: Vector3) -> void:
 	# Set flag that external inventory is open
 	is_external_open = true
 	
+	external_inventory_position = _external_inventory_position
 	external_inventory_data = inventory_data
 	
 	# Connect inventory data to signal

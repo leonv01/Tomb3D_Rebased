@@ -11,7 +11,7 @@ extends Entity
 
 @export var inventory_data: InventoryData
 @export var equip_inventory_data: InventoryDataEquip
-
+@export var max_range_external_inventory: int = 5
 @onready var hotbar_inventory: PanelContainer = $UI/HotbarInventory
 
 @onready var head: Node3D = $Head
@@ -44,6 +44,8 @@ func _process(delta: float) -> void:
 	
 	# Display health
 	health_label.text = "Health: %d" % health
+	
+	inventory_interface.check_external_inventory_in_range(global_position, max_range_external_inventory)
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -89,7 +91,10 @@ func _unhandled_input(event: InputEvent) -> void:
 	
 	# Trigger interact
 	if Input.is_action_just_pressed("interact"):
-		interact()
+		if inventory_interface.visible:
+			pass
+		else:
+			interact()
 	
 	# Run action
 	if Input.is_action_just_pressed("run"):
@@ -112,21 +117,21 @@ func interact() -> void:
 		
 		# Check group of object
 		if collided_object.is_in_group("external_inventory"):
-			toggle_inventory(collided_object.inventory_data)
+			toggle_inventory(collided_object.inventory_data, collided_object.global_position)
 			
 		if collided_object.is_in_group("pick_up"):
 			collided_object.picked_up(inventory_data)
 		
 ## Function to toggle inventory
 ## @param1: external inventory data to be used (set to null by default if no data is passed)
-func toggle_inventory(external_inventory_data: InventoryData = null) -> void:	
+func toggle_inventory(external_inventory_data: InventoryData = null, external_inventory_position: Vector3 = Vector3()) -> void:	
 	# Toggle visbility of interface
 	inventory_interface.visible = not inventory_interface.visible
 	
 	# If external interface data is existing and if flag is set for external inventory is open
 	if external_inventory_data and not inventory_interface.is_external_open:
 		# Set external inventory data
-		inventory_interface.set_external_inventory_data(external_inventory_data)
+		inventory_interface.set_external_inventory_data(external_inventory_data, external_inventory_position)
 	else:
 		# Clear external inventory data
 		inventory_interface.clear_external_inventory_data(external_inventory_data)
